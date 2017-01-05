@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/zgoraj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/list_vprasanja"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+        </ListView>
+
+        <Button
+            android:id="@+id/button_dodaj_vprasanje"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="73dp"
+            android:textColor="#FFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button2"
+            android:text="DODAJ VPRAŠANJE"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

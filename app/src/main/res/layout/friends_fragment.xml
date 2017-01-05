@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/prijatelji"
+
+                tools:context="com.cybermyth.matej.ordino.FriendsFragment">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_marginTop="-5dp">
+                <TextView
+                    android:id="@+id/skupina_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Skupine:"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:padding="10dp"
+                    />
+
+                <ListView
+                    android:layout_marginTop="-5dp"
+                    android:id="@+id/list_groups"
+                    android:layout_marginLeft="7dp"
+                    android:layout_below="@id/skupina_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </ListView>
+                <TextView
+                    android:layout_below="@id/list_groups"
+                    android:id="@+id/uporabnik_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:text="Uporabniki:"
+                    android:padding="10dp"
+                    />
+
+                <ListView
+                    android:id="@+id/list_friends"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_below="@id/uporabnik_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </ListView>
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/buttonPošlji"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="73dp"
+            android:textColor="#FFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button2"
+            android:text="POŠLJI"/>
+
+</RelativeLayout>
