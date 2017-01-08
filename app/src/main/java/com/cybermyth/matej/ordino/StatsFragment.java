@@ -2,6 +2,9 @@ package com.cybermyth.matej.ordino;
 
 import android.app.Dialog;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -117,6 +121,7 @@ public class StatsFragment extends Fragment {
 
                 Log.e("BLAAAAAAAAAAAA", name);
 
+                createNotification(vprasanje);
 
                 bundle.putString("vprasanje", vprasanje);
                 Log.e(vprasanje, vprasanje);
@@ -172,5 +177,37 @@ public class StatsFragment extends Fragment {
                 });
         builder.create();
         builder.show();
+    }
+
+    public void createNotification(String vprasanje) {
+        // Prepare intent which is triggered if the
+        // notification is selected
+        //Intent intent = new Intent(this, NotificationReceiverActivity.class);
+        //PendingIntent pIntent = PendingIntent.getActivity(getActivity(), (int) System.currentTimeMillis(), intent, 0);
+
+        // Build notification
+        // Actions are just fake
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
+                .setSmallIcon(R.drawable.settings_logo)
+                .setContentTitle("Need an answer as soon as possible:")
+                .setContentText(vprasanje)
+                .addAction(1, "Option 1", null)
+                .addAction (2, "Option 2", null)
+                .addAction (3, "Option 3", null);
+
+
+
+        Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        getActivity();
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, builder.build());
+
+
+
     }
 }
