@@ -2,6 +2,7 @@ package com.cybermyth.matej.ordino;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,9 +14,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.cybermyth.matej.ordino.Database.AktivnaVprasanjaAdapter;
 import com.cybermyth.matej.ordino.Database.DbHelper;
@@ -107,6 +110,24 @@ public class FormsFragment extends Fragment{
 
         //emptyView = view.findViewById(android.R.id.empty);
         listView = (ListView) view.findViewById(R.id.aktivna_vprasanja_list);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String vprasanje =(String) ((TextView) view.findViewById(R.id.aktivno_vprasanje_text)).getText();
+                String odgovori =(String) ((TextView) view.findViewById(R.id.akitvni_odgovori_text)).getText();
+                String clani =(String) ((TextView) view.findViewById(R.id.aktivni_clani_text)).getText();
+                Log.e("Vprasanje: ", vprasanje);
+                Log.e("Odgovor: ", odgovori);
+                Log.e("Clani: ", clani);
+
+
+
+                Intent intent = new Intent(view.getContext(), DetailVprasanje.class);
+
+                intent.putExtra("clani", clani);
+                startActivity(intent);
+            }
+        });
         //listView.setEmptyView(emptyView);
 
         /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
