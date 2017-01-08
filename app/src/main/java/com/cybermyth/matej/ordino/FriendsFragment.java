@@ -85,7 +85,7 @@ public class FriendsFragment extends Fragment{
                         DbHelper dbHelper = new DbHelper(context);
                         dbHelper.addGroup(new DbSkupin(ButtonClick()));
                         onResume();
-                        dbHelper.addAktivnoVprasanje(new DbAktivnoVprasanje("Ali greš danes na kosilo?", "Da, Ne, Mogoče", "Jaka Kokošar, Borut Budna, Matej Fistrovič"));
+                        dbHelper.addAktivnoVprasanje(new DbAktivnoVprasanje("Will you be in the office today?", "Not today, Yes after 9am, At the office ATM ", "Mike, Lara, Will, Jason"));
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 

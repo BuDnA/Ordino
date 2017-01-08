@@ -92,18 +92,23 @@ public class juhej extends AppCompatActivity {
         View v;
         TextView et;
         CheckBox ch;
-        String odgovor = "";
+        StringBuilder skupina = new StringBuilder();
         for (int i = 0; i < listView.getCount(); i++) {
             v = listView.getChildAt(i);
             ch = (CheckBox) v.findViewById(R.id.odgovor_check);
             et = (TextView) v.findViewById(R.id.mozni_odgovor_text);
             if(ch.isChecked()){
-                odgovor += et.getText().toString() + ",";
+                skupina.append(et.getText().toString() + ", ");
                 Log.e(et.getText().toString(), et.getText().toString());
             }
 
         }
-        return odgovor;
+        if(skupina.charAt(skupina.length()-2) == ','){
+            skupina.setCharAt(skupina.length()-2, ' ');
+        }
+
+
+        return String.valueOf(skupina);
     }
 
 

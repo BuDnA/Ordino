@@ -17,7 +17,7 @@
                     android:id="@+id/skupina_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Skupine:"
+                    android:text="Groups:"
                     android:textColor="#000000"
                     android:textSize="23dp"
                     android:padding="10dp"
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:textSize="23dp"
-                    android:text="Uporabniki:"
+                    android:text="Users:"
                     android:padding="10dp"
                     />
 
@@ -71,6 +71,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button2"
-            android:text="POŠLJI"/>
+            android:text="SEND"/>
 
 </RelativeLayout>
