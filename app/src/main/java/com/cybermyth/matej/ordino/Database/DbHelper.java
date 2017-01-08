@@ -21,7 +21,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String dbName = "Baza.db";
 
     //Verzija
-    private static final int dbVersion = 8;
+    private static final int dbVersion = 9;
 
     //Stolpci za tabelo Vprasanja
     public static final String tabelaVprasanja = "Vprasanja";

@@ -20,7 +20,7 @@
         android:id="@+id/detail_vprasanje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ali greš danes na kosilo?"
+        android:text="Will you be in the office today ?"
         android:background="@drawable/custom_button3"
         />
 
@@ -43,7 +43,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Da"/>
+            android:text="Yes after 9am"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
 
             android:textSize="20sp"
             android:layout_alignParentRight="true"
-            android:text="1"/>
+            android:text="3"/>
 
         <TextView
             android:id="@+id/detail_ne"
@@ -60,7 +60,7 @@
             android:layout_below="@id/detail_da"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ne"/>
+            android:text="Not today"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
             android:layout_below="@id/detail_ne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mogoče"/>
+            android:text="At the office ATM"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,19 +100,32 @@
             <TextView android:layout_width="wrap_content"
                       android:id="@+id/detail_odgovorili"
                       android:textColor="#00ff00"
+                      android:textSize="15dp"
                       android:layout_centerVertical="true"
                       android:layout_height="wrap_content"
                       android:layout_alignParentLeft="true"
-                      android:text="Jaka Kokošar, Borut Budna,"/>
+                      android:text="Mike, Lara, "/>
             <TextView android:layout_width="wrap_content"
                       android:paddingLeft="3dp"
+                android:textSize="15dp"
                       android:layout_toRightOf="@id/detail_odgovorili"
                       android:layout_centerVertical="true"
                       android:id="@+id/detail_niso_odgovorili"
                       android:layout_height="wrap_content"
                       android:textColor="#ff0000"
                       android:onClick="register"
-                      android:text="Matej Fistrovič"/>
+                      android:text="Will, "/>
+
+            <TextView android:layout_width="wrap_content"
+                android:paddingLeft="3dp"
+                android:textSize="15dp"
+                android:layout_toRightOf="@id/detail_niso_odgovorili"
+                android:layout_centerVertical="true"
+                android:id="@+id/bla"
+                android:layout_height="wrap_content"
+                android:textColor="#00ff00"
+                android:onClick="register"
+                android:text="Jason, Frank"/>
         </RelativeLayout>
 
     </RelativeLayout>
@@ -124,14 +137,14 @@
 
 
 
-    <!--
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prikaži statistiko"
+        android:text="SHARE GROUP DECISION"
         android:layout_alignParentBottom="true"
         android:textColor="#FFFF"
         android:background="@drawable/custom_button2"/>
-        -->
+
 
 </RelativeLayout>
