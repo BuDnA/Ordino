@@ -1,6 +1,8 @@
 package com.cybermyth.matej.ordino;
 
 import android.app.Dialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -85,10 +88,12 @@ public class FriendsFragment extends Fragment{
                         DbHelper dbHelper = new DbHelper(context);
                         dbHelper.addGroup(new DbSkupin(ButtonClick()));
                         onResume();
-                        dbHelper.addAktivnoVprasanje(new DbAktivnoVprasanje("Will you be in the office today?", "Not today, Yes after 9am, At the office ATM ", "Mike, Lara, Will, Jason"));
+                        dbHelper.addAktivnoVprasanje(new DbAktivnoVprasanje("Will you be in the office today?", "Not today, Yes after 9am, At the office ATM ", "Mike, Lara, Will, Jason, Jake"));
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
+                        String vprasanje = "Will you be in the office today?";
+                        createNotification(vprasanje);
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -253,5 +258,37 @@ public class FriendsFragment extends Fragment{
                 });
         builder.create();
         builder.show();
+    }
+
+    public void createNotification(String vprasanje) {
+        // Prepare intent which is triggered if the
+        // notification is selected
+        //Intent intent = new Intent(this, NotificationReceiverActivity.class);
+        //PendingIntent pIntent = PendingIntent.getActivity(getActivity(), (int) System.currentTimeMillis(), intent, 0);
+
+        // Build notification
+        // Actions are just fake
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity())
+                .setSmallIcon(R.drawable.settings_logo)
+                .setContentTitle("Need an answer as soon as possible:")
+                .setContentText(vprasanje)
+                .addAction(1, "Not today", null)
+                .addAction (2, "Yes after 9am", null)
+                .addAction (3, "At the office ATM", null);
+
+
+
+        Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        getActivity();
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, builder.build());
+
+
+
     }
 }
